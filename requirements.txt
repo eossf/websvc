@@ -1,0 +1,6 @@
+wheel
+fastapi
+uvicorn
+pyarrow
+pydantic
+requests
