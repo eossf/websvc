@@ -44,4 +44,4 @@ def info():
 }
 
 if __name__ == "__main__":
-    uvicorn.run(app, host=os.getenv("API_HOST", "localhost"), port=os.getenv("API_PORT", 8080))
+    uvicorn.run('main:app', host=os.getenv("API_HOST", "127.0.0.1"), port=os.getenv("API_PORT", 8000), reload=True, debug=True)
