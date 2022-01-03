@@ -36,4 +36,4 @@ ADD main.py ${PROJECT_ROOT}/main.py
 ADD static ${PROJECT_ROOT}/static 
 WORKDIR ${PROJECT_ROOT}
 ENV PATH="/root/.local/bin:${PATH}"
-CMD uvicorn main:app --host 127.0.0.1 --port 8000
+CMD uvicorn main:app --host 0.0.0.0 --port 8000

@@ -1,5 +1,6 @@
 # websvc
 Python FastAPI webapi for testing
+You need curl, docker, docker-compose, helm, and conda for local dev
 
 ## Get repository for rw
 ````
