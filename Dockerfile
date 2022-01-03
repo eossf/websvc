@@ -6,8 +6,8 @@ ARG USER_COUNTRY=CH
 ARG USER_LANGUAGE=fr
 ARG FILE_ENCODING=UTF-8
 
-ARG API_HOST=localhost
-ARG API_PORT=8000
+ARG API_HOST=127.0.0.1
+ARG API_PORT=80
 
 LABEL \
     MAINTAINER=metairie \
@@ -38,5 +38,5 @@ EXPOSE ${API_PORT}
 ADD main.py ${PROJECT_ROOT}/main.py
 ADD static ${PROJECT_ROOT}/static 
 WORKDIR ${PROJECT_ROOT}
-
-CMD [ "${PROJECT_ROOT}/.local/bin/uvicorn", "main:app", "--host ${API_HOST}", "--port ${API_PORT}" ]
+ENV PATH="/root/.local/bin:${PATH}"
+CMD uvicorn main:app --host ${API_HOST} --port ${API_PORT}
