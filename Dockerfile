@@ -1,6 +1,6 @@
 FROM redhat/ubi8
 
-ARG PROJECT_ROOT=/root/
+ARG PROJECT_ROOT=/root
 ARG USER_TIMEZONE=Europe/Zurich
 ARG USER_COUNTRY=CH
 ARG USER_LANGUAGE=fr
@@ -32,11 +32,11 @@ ENV \
 # update image
 RUN dnf -y upgrade && dnf -y install python39 python39-devel wget git
 ADD requirements.txt /root/
-
-WORKDIR ${PROJECT_ROOT}
-
-RUN pip3 install --user -r /root/requirements.txt
+RUN pip3 install --user -r ${PROJECT_ROOT}/requirements.txt
 
 EXPOSE ${API_PORT}
+ADD main.py ${PROJECT_ROOT}/main.py
+ADD static ${PROJECT_ROOT}/static 
+WORKDIR ${PROJECT_ROOT}
 
-CMD uvicorn main:app --host ${API_HOST} --port ${API_PORT}
+CMD [ "${PROJECT_ROOT}/.local/bin/uvicorn", "main:app", "--host ${API_HOST}", "--port ${API_PORT}" ]
