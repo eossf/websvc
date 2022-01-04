@@ -29,7 +29,7 @@ ENV \
 # update image
 RUN dnf -y upgrade && dnf -y install python39 python39-devel wget git
 ADD requirements.txt /root/
-RUN pip3 install --user -r ${PROJECT_ROOT}/requirements.txt
+RUN pip3 install --user --no-cache-dir -r ${PROJECT_ROOT}/requirements.txt
 
 EXPOSE ${API_PORT}
 ADD main.py ${PROJECT_ROOT}/main.py
