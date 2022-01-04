@@ -7,9 +7,12 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+  {{- range $k, $v := .Values.services.svc }}
+    - name: {{ $v.name }}
+      port: {{ $v.port }}
+      targetPort: {{ $v.targetport }}
+      protocol: {{ $v.protocol }}
+      nodePort: {{ $v.nodeport }}
   selector:
     {{- include "websvc.selectorLabels" . | nindent 4 }}
+
