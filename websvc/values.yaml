@@ -10,12 +10,11 @@ image:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
 podAnnotations: {}
-
 podSecurityContext: {}
-
 securityContext: {}
+serviceAccount:
+  create: false
 
 services:
   type: ClusterIP
@@ -26,8 +25,8 @@ services:
       protocol: TCP
       nodeport: 
 
-resources: {}
 
+resources: {}
 autoscaling:
   enabled: false
   minReplicas: 1
@@ -35,7 +34,5 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
 
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}

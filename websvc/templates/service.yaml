@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "websvc.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.services.type }}
   ports:
   {{- range $k, $v := .Values.services.svc }}
     - name: {{ $v.name }}
@@ -13,6 +13,6 @@ spec:
       targetPort: {{ $v.targetport }}
       protocol: {{ $v.protocol }}
       nodePort: {{ $v.nodeport }}
+  {{- end }}
   selector:
     {{- include "websvc.selectorLabels" . | nindent 4 }}
-
