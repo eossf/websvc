@@ -17,9 +17,14 @@ podSecurityContext: {}
 
 securityContext: {}
 
-service:
+services:
   type: ClusterIP
-  port: 8000
+  svc:
+    - name: websvc
+      port: 8000
+      targetport: 8000
+      protocol: TCP
+      nodeport: 
 
 resources: {}
 
