@@ -1,5 +1,7 @@
 replicaCount: 1
 
+namespace: websvc
+
 image:
   repository: websvc
   pullPolicy: IfNotPresent

@@ -21,7 +21,12 @@ docker build . -t websvc:0.0.1
 docker-compose build --force-rm --progress plain
 ````
 
-## -- Helm
+## -- Helm deploy package
+
+### create a namespace, add context
+````
+kubectl create namespace websvc
+````
 
 ### install websvc package
 ````
