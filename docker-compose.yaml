@@ -3,6 +3,6 @@ version: "3.9"
 services:
   web:
     build: .
-    image: websvc:0.0.1
+    image: metairie/websvc:0.0.1
     ports:
     - 8000:8000
