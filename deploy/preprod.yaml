@@ -1,4 +1,9 @@
 token: "qual-token-ooooooooooo"
+
+hosts:
+  main_url: "1st.url.preprod"
+  second_url: "2sd.url.preprod" 
+
 image:
   repository: "metairie/websvc"
   pullPolicy: IfNotPresent

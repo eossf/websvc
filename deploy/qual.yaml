@@ -1,4 +1,9 @@
 token: "qual-token-qqqqqqqqqqq"
+
+hosts:
+  main_url: "1st.url.qual"
+  second_url: "2sd.url.qual" 
+
 image:
   repository: "metairie/websvc"
   pullPolicy: IfNotPresent
