@@ -17,14 +17,13 @@ serviceAccount:
   create: false
 
 services:
-  type: ClusterIP
+  type: NodePort
   svc:
     - name: websvc
       port: 8000
       targetport: 8000
       protocol: TCP
-      nodeport: 
-
+      nodeport: 32000
 
 resources: {}
 autoscaling:

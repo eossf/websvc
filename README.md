@@ -17,6 +17,7 @@ uvicorn main:app
 
 ## -- Build Image
 ````
+cd ~/websvc
 docker build . -t websvc:0.0.1
 docker-compose build --force-rm --progress plain
 ````
