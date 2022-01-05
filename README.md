@@ -26,12 +26,16 @@ docker-compose build --force-rm --progress plain
 
 ### create a namespace, add context
 ````
-kubectl create namespace websvc
+kubectl create namespace int
+kubectl create namespace qual
+kubectl create namespace preprod
+kubectl create namespace prod
 ````
 
-### install websvc package
+## -- Deployment
+
+### install websvc package INTEGRATION
 ````
 cd ~/websvc
-helm install -f myvalue.yaml websvc ./websvc 
-helm install websvc ./websvc 
+helm install -f ../deploy/int.yaml websvc ./websvc 
 ````
