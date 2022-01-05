@@ -39,3 +39,14 @@ kubectl create namespace prod
 cd ~/websvc
 helm install -f ../deploy/int.yaml websvc ./websvc 
 ````
+
+
+## -- test an environment
+
+For INT NodePort 32000 
+````
+helm install -f ../deploy/int.yaml websvc ./websvc
+curl http://NODE01:32000/info 
+#default : curl http://45.76.46.182:32000/info 
+
+````
