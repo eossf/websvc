@@ -35,6 +35,20 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: CHART_NAME
+              value: "{{ .Chart.Name }}"
+            {{- range $k, $v := .Values.hosts }}
+            - name: {{ $k }}
+              value: "{{ $v }}"
+            {{- end }}
+            {{- range $path, $bytes := .Files.Glob "config/*.properties" }}
+            {{- range $k := $.Files.Lines $path -}}
+            {{ $a := split ": " $k }}
+            - name: {{ $a._0 }}
+              value: {{ $a._1 }}
+              {{- end }}
+            {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -1,3 +1,4 @@
+token: "qual-token-qqqqqqqqqqq"
 image:
   repository: "metairie/websvc"
   pullPolicy: IfNotPresent

@@ -1,3 +1,4 @@
+token: "dev-token-dddddddddddd"
 image:
   repository: "metairie/websvc"
   pullPolicy: IfNotPresent
