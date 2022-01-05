@@ -16,3 +16,4 @@ dependencies:
     - pyarrow
     - pydantic
     - requests
+    - gunicorn
