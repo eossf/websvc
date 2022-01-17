@@ -13,7 +13,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
     - name: Build and Push the Docker image
       uses: docker/build-push-action@v2
       with: 
@@ -21,13 +20,12 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         repository: metairie/websvc
         tags: latest, ${{ github.run_number }}
-
-      - name: ls via ssh
-        uses: nerd4ever/ssh-action@master
-        with:
-          command: |
-            cd /tmp
-            ls -ltrah > /tmp/list.txt
-          host: ${{ secrets.VULTR_KUBECTL_HOST }}
-          user: root
-          key: ${{ secrets.VULTR_PRIVATE_KEY}}
+    - name: ls via ssh
+      uses: nerd4ever/ssh-action@master
+      with:
+        command: |
+          cd /tmp
+          ls -ltrah > /tmp/list.txt
+        host: ${{ secrets.VULTR_KUBECTL_HOST }}
+        user: root
+        key: ${{ secrets.VULTR_PRIVATE_KEY}}
